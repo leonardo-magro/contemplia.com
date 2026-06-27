@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" role="img" aria-label="Contemplia mark">
+  <title>Contemplia — The Lens</title>
+  <defs>
+    <clipPath id="lens"><circle cx="38" cy="50" r="30"></circle></clipPath>
+  </defs>
+  <circle cx="62" cy="50" r="30" fill="#8D8BC1" clip-path="url(#lens)"></circle>
+  <circle cx="38" cy="50" r="30" fill="none" stroke="#45406A" stroke-width="2"></circle>
+  <circle cx="62" cy="50" r="30" fill="none" stroke="#45406A" stroke-width="2"></circle>
+</svg>

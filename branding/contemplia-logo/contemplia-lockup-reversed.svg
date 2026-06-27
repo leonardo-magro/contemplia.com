@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 450 110" role="img" aria-label="Contemplia logo, reversed">
+  <title>Contemplia — horizontal lockup (reversed)</title>
+  <defs>
+    <clipPath id="lensLR"><circle cx="38" cy="50" r="30"></circle></clipPath>
+    
+  </defs>
+  <g transform="translate(8,5) scale(0.95)">
+    <circle cx="62" cy="50" r="30" fill="#8D8BC1" clip-path="url(#lensLR)"></circle>
+    <circle cx="38" cy="50" r="30" fill="none" stroke="#B9B7DA" stroke-width="2"></circle>
+    <circle cx="62" cy="50" r="30" fill="none" stroke="#B9B7DA" stroke-width="2"></circle>
+  </g>
+  <text class="wmr" x="118" y="74">contemplia</text>
+</svg>

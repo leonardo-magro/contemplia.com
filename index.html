@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contemplia — Leonardo Magro</title>
-  <meta name="description" content="Consulenza AI per aziende. Automazioni, agenti AI e formazione per ridurre le ore dedicate ad attività ripetitive e liberare il potenziale delle persone." />
-  <link rel="icon" type="image/png" href="branding/logo/2.png" />
+  <title>Contemplia — Automatizza la routine. Eleva l'umano.</title>
+  <meta name="description" content="Contemplia aiuta le aziende a delegare il lavoro ripetitivo all'AI e restituire attenzione a ciò che solo le persone possono fare: decidere, creare, contemplare." />
+  <link rel="icon" type="image/png" href="branding/contemplia-logo/png/contemplia-app-icon.png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload above/near-the-fold optimized photos for instant display -->
+  <link rel="preload" as="image" href="images/me/hero-web.jpg" />
+  <link rel="preload" as="image" href="images/me/presentation-web.jpg" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,13 +23,19 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="branding/logo/2.png" alt="Contemplia" />
+      <a href="#hero" class="nav-logo" aria-label="Contemplia — home">
+        <svg class="lens-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <defs><clipPath id="lensNav"><circle cx="38" cy="50" r="30"/></clipPath></defs>
+          <circle cx="62" cy="50" r="30" fill="#8D8BC1" clip-path="url(#lensNav)"/>
+          <circle cx="38" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="62" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        </svg>
         <span>contemplia</span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">Chi sono</a></li>
-        <li><a href="#values">Approccio</a></li>
+        <li><a href="#values">Valori</a></li>
+        <li><a href="#approach">Approccio</a></li>
         <li><a href="#usecases">Use Cases</a></li>
         <li><a href="#booking" class="nav-cta">Prenota una call</a></li>
       </ul>
@@ -32,7 +45,8 @@
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about" class="mobile-link">Chi sono</a>
-      <a href="#values" class="mobile-link">Approccio</a>
+      <a href="#values" class="mobile-link">Valori</a>
+      <a href="#approach" class="mobile-link">Approccio</a>
       <a href="#usecases" class="mobile-link">Use Cases</a>
       <a href="#booking" class="mobile-link mobile-cta">Prenota una call</a>
     </div>
@@ -40,24 +54,44 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="container hero-content">
-      <div class="hero-tag reveal">Consulenza AI per aziende</div>
-      <h1 class="hero-title reveal">
-        L'AI non sostituisce le persone.
-        <span class="gradient-text">Le potenzia.</span>
-      </h1>
-      <p class="hero-sub reveal">
-        Aiuto le aziende a scoprire, implementare e monitorare soluzioni AI che eliminano il lavoro ripetitivo — e liberano il tempo per ciò che conta davvero.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#booking" class="btn-primary">Prenota una call gratuita</a>
-        <a href="#usecases" class="btn-ghost">Vedi i progetti →</a>
+    <div class="hero-grain"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="mono-label reveal">Umano + AI, insieme · 2026</div>
+        <h1 class="hero-title reveal">
+          Automatizza la routine.<br />
+          <span class="display-italic">Eleva l'umano.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Le macchine prendono il lavoro che si ripete. Le persone tornano dove conta davvero: decidere, creare, contemplare. Aiuto le aziende a costruire questo equilibrio — con agenti AI e automazioni su misura.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#booking" class="btn-primary">Prenota una call gratuita</a>
+          <a href="#usecases" class="btn-ghost">Vedi i progetti →</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-photo-wrap reveal">
-      <img src="images/me/hero.jpeg" alt="Leonardo Magro" class="hero-photo" />
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <svg class="lens-hero" viewBox="0 0 240 200">
+          <defs>
+            <clipPath id="lensHero"><circle cx="95" cy="100" r="62"/></clipPath>
+            <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#8D8BC1" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#8D8BC1" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <ellipse class="halo" cx="120" cy="100" rx="80" ry="80" fill="url(#lensGlow)"/>
+          <g class="lens-rotor">
+            <circle class="ring ring-human" cx="95" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
+            <circle class="ring ring-ai" cx="145" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
+          </g>
+          <circle cx="145" cy="100" r="62" fill="#8D8BC1" fill-opacity="0.92" clip-path="url(#lensHero)"/>
+        </svg>
+        <div class="lens-captions">
+          <span class="cap cap-left">Umano</span>
+          <span class="cap cap-right">AI</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -94,26 +128,26 @@
   <section id="about">
     <div class="container about-grid">
       <div class="about-photos reveal">
-        <img src="images/me/MON01285.jpg" alt="Leonardo Magro" class="about-photo photo-main" />
-        <img src="images/me/presentation.jpg" alt="Leonardo Magro presenta" class="about-photo photo-secondary" />
+        <img src="images/me/hero-web.jpg" alt="Leonardo Magro" class="about-photo photo-main" width="1000" height="1400" />
+        <img src="images/me/presentation-web.jpg" alt="Leonardo Magro durante una presentazione" class="about-photo photo-secondary" width="900" height="600" loading="lazy" />
       </div>
       <div class="about-text">
-        <div class="section-tag reveal">Chi sono</div>
-        <h2 class="section-title reveal">Ciao, sono <span class="gradient-text">Leonardo.</span></h2>
+        <div class="mono-label reveal">Chi sono</div>
+        <h2 class="section-title reveal">Ciao, sono <span class="display-italic">Leonardo.</span></h2>
         <p class="about-desc reveal">
           Laureato in Digital Management ad HFarm, mi sono specializzato nell'introdurre l'intelligenza artificiale all'interno delle organizzazioni — non come fine, ma come mezzo.
         </p>
         <p class="about-desc reveal">
-          Il mio lavoro parte sempre da una domanda semplice: <em>dove le persone spendono tempo prezioso in attività a basso valore?</em> Da lì, costruiamo insieme soluzioni concrete — agenti AI, automazioni, flussi integrati — che restituiscono ore e generano risultati misurabili.
+          Il mio lavoro parte sempre da una domanda semplice: <em>dove le persone spendono tempo prezioso in attività a basso valore?</em> Da lì costruiamo soluzioni concrete — agenti AI, automazioni, flussi integrati — che restituiscono ore e generano risultati misurabili.
         </p>
         <p class="about-desc reveal">
           Ho lavorato con multinazionali e PMI, formato team di ogni dimensione, e gestito progetti dall'idea al go-live. Ogni progetto ha una cosa in comune: le persone rimangono al centro.
         </p>
         <div class="about-badges reveal">
-          <span class="badge">🎓 HFarm — Digital Management</span>
-          <span class="badge">🤖 AI Strategy</span>
-          <span class="badge">⚙️ Process Automation</span>
-          <span class="badge">🎤 Corporate Training</span>
+          <span class="badge">HFarm — Digital Management</span>
+          <span class="badge">AI Strategy</span>
+          <span class="badge">Process Automation</span>
+          <span class="badge">Corporate Training</span>
         </div>
       </div>
     </div>
@@ -123,31 +157,81 @@
   <section id="values">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag reveal">L'approccio</div>
-        <h2 class="section-title reveal">Tre pilastri,<br /><span class="gradient-text">un risultato.</span></h2>
-        <p class="section-sub reveal">Contemplia unisce creatività, competenza tecnica e rigore nel monitoraggio per trasformare l'AI da buzzword a strumento reale.</p>
+        <div class="mono-label reveal">I valori che perseguiamo</div>
+        <h2 class="section-title reveal">Dove umano e AI <span class="display-italic">si incontrano.</span></h2>
+        <p class="section-sub reveal">Tracciamo una linea netta: le macchine tengono la routine, le persone tengono le decisioni, le relazioni, il significato. Questi sono i principi che guidano ogni progetto.</p>
       </div>
-      <div class="values-grid">
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#g1)" stroke-width="2"/><path d="M16 24c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="3" fill="url(#g1)"/><defs><linearGradient id="g1" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse"><stop stop-color="#4A6CF7"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+
+      <div class="values-list">
+        <div class="value-row reveal">
+          <span class="value-index">01</span>
+          <div class="value-body">
+            <h3 class="value-name">L'umano al centro</h3>
+            <p class="value-text">La tecnologia serve le persone, mai il contrario. L'AI si occupa del ripetitivo; l'umano resta dove conta — a decidere, costruire relazioni, dare senso.</p>
           </div>
-          <h3 class="value-title">Discovery</h3>
-          <p class="value-desc">Utilizziamo creatività e un mindset innovativo per mappare i processi aziendali, identificare i colli di bottiglia e formulare nuove soluzioni. Prima di costruire, capiamo.</p>
         </div>
-        <div class="value-card value-card--accent reveal">
-          <div class="value-icon">
-            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="6" stroke="url(#g2)" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="url(#g2)" stroke-width="2" stroke-linecap="round"/><defs><linearGradient id="g2" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#4A6CF7"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+        <div class="value-row reveal">
+          <span class="value-index">02</span>
+          <div class="value-body">
+            <h3 class="value-name">Capire prima di automatizzare</h3>
+            <p class="value-text">Partiamo sempre dal concetto e dal contesto. Nessuna soluzione viene costruita prima di aver compreso davvero il lavoro che deve alleggerire.</p>
           </div>
-          <h3 class="value-title">Implementazione</h3>
-          <p class="value-desc">Dalla strategia al codice. Costruiamo agenti AI, automazioni e sistemi integrati che funzionano davvero — e che le persone sapranno usare fin dal primo giorno.</p>
         </div>
-        <div class="value-card reveal">
-          <div class="value-icon">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M8 36l10-10 8 8 14-18" stroke="url(#g3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="16" r="4" stroke="url(#g3)" stroke-width="2"/><defs><linearGradient id="g3" x1="8" y1="16" x2="42" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#4A6CF7"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+        <div class="value-row reveal">
+          <span class="value-index">03</span>
+          <div class="value-body">
+            <h3 class="value-name">Il tempo è valore</h3>
+            <p class="value-text">Ogni ora restituita è un'ora che torna alla creatività, alle decisioni, alla contemplazione. Misuriamo il successo in tempo liberato, non in strumenti aggiunti.</p>
           </div>
-          <h3 class="value-title">Monitoraggio</h3>
-          <p class="value-desc">Ogni soluzione deve dimostrare il suo valore. Rendiamo tangibile l'impatto con metriche chiare, dashboard e follow-up continuo per ottimizzare nel tempo.</p>
+        </div>
+        <div class="value-row reveal">
+          <span class="value-index">04</span>
+          <div class="value-body">
+            <h3 class="value-name">Trasparenza e misura</h3>
+            <p class="value-text">Niente promesse vaghe. Rendiamo tangibile ogni impatto con dati chiari, così il valore generato è sempre visibile e verificabile.</p>
+          </div>
+        </div>
+        <div class="value-row reveal">
+          <span class="value-index">05</span>
+          <div class="value-body">
+            <h3 class="value-name">Tecnologia senza confini visibili</h3>
+            <p class="value-text">L'AI lavora accanto alle persone, in modo fluido — al servizio, mai sopra. Il sistema migliore è quello che non si fa notare.</p>
+          </div>
+        </div>
+        <div class="value-row reveal">
+          <span class="value-index">06</span>
+          <div class="value-body">
+            <h3 class="value-name">Soluzioni che durano</h3>
+            <p class="value-text">Costruiamo sistemi solidi e manutenibili, che le persone sanno davvero usare. L'impatto non finisce al go-live: continua a crescere nel tempo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="container">
+      <div class="section-header">
+        <div class="mono-label reveal">L'approccio</div>
+        <h2 class="section-title reveal">Tre pilastri, <span class="display-italic">un risultato.</span></h2>
+        <p class="section-sub reveal">Dalla scoperta del problema al monitoraggio dell'impatto: un metodo che unisce creatività, competenza tecnica e rigore.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card reveal">
+          <span class="approach-num">01</span>
+          <h3 class="approach-title">Discovery</h3>
+          <p class="approach-desc">Mappiamo i processi aziendali con creatività e un mindset innovativo, identifichiamo i colli di bottiglia e formuliamo nuove soluzioni. Prima di costruire, capiamo.</p>
+        </div>
+        <div class="approach-card approach-card--accent reveal">
+          <span class="approach-num">02</span>
+          <h3 class="approach-title">Implementazione</h3>
+          <p class="approach-desc">Dalla strategia al codice. Costruiamo agenti AI, automazioni e sistemi integrati che funzionano davvero — e che le persone sapranno usare fin dal primo giorno.</p>
+        </div>
+        <div class="approach-card reveal">
+          <span class="approach-num">03</span>
+          <h3 class="approach-title">Monitoraggio</h3>
+          <p class="approach-desc">Ogni soluzione deve dimostrare il suo valore. Rendiamo tangibile l'impatto con metriche chiare e follow-up continuo per ottimizzare nel tempo.</p>
         </div>
       </div>
     </div>
@@ -157,13 +241,12 @@
   <section id="usecases">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag reveal">Use Cases</div>
-        <h2 class="section-title reveal">Soluzioni reali,<br /><span class="gradient-text">risultati misurabili.</span></h2>
+        <div class="mono-label reveal">Use Cases</div>
+        <h2 class="section-title reveal">Soluzioni reali, <span class="display-italic">risultati misurabili.</span></h2>
         <p class="section-sub reveal">Esempi concreti di come l'AI ha trasformato processi aziendali in vantaggi competitivi. Clicca su ogni progetto per scoprirne i dettagli.</p>
       </div>
       <div class="usecases-grid">
 
-        <!-- CLAUSIS -->
         <div class="usecase-card reveal" data-case="clausis">
           <div class="usecase-front">
             <div class="usecase-header">
@@ -184,16 +267,15 @@
               L'analisi manuale dei contratti richiedeva ore di lavoro qualificato per ogni documento. Clausis è un agente AI che legge, classifica e riassume clausole critiche in pochi secondi — segnalando anomalie e rischi in modo immediato.
             </p>
             <ul class="detail-list">
-              <li>✓ Analisi di contratti in linguaggio naturale</li>
-              <li>✓ Identificazione automatica delle clausole chiave</li>
-              <li>✓ Report sintetico con flag sui punti critici</li>
-              <li>✓ Integrato nei flussi di lavoro esistenti</li>
+              <li>Analisi di contratti in linguaggio naturale</li>
+              <li>Identificazione automatica delle clausole chiave</li>
+              <li>Report sintetico con flag sui punti critici</li>
+              <li>Integrato nei flussi di lavoro esistenti</li>
             </ul>
             <button class="detail-close">Chiudi ✕</button>
           </div>
         </div>
 
-        <!-- SCOUT -->
         <div class="usecase-card reveal" data-case="scout">
           <div class="usecase-front">
             <div class="usecase-header">
@@ -214,16 +296,15 @@
               I team sales perdevano tempo prezioso a ricercare manualmente informazioni sui potenziali clienti. Scout raccoglie automaticamente dati pubblici, li incrocia con il profilo aziendale e restituisce in pochi secondi una panoramica completa dei punti di incontro con il prospect.
             </p>
             <ul class="detail-list">
-              <li>✓ Raccolta automatica di dati pubblici sul prospect</li>
-              <li>✓ Analisi dei punti di affinità con l'offerta</li>
-              <li>✓ Suggerimenti per l'approccio commerciale</li>
-              <li>✓ Output pronto per il CRM</li>
+              <li>Raccolta automatica di dati pubblici sul prospect</li>
+              <li>Analisi dei punti di affinità con l'offerta</li>
+              <li>Suggerimenti per l'approccio commerciale</li>
+              <li>Output pronto per il CRM</li>
             </ul>
             <button class="detail-close">Chiudi ✕</button>
           </div>
         </div>
 
-        <!-- RISPOSTE AUTOMATICHE -->
         <div class="usecase-card reveal" data-case="quality">
           <div class="usecase-front">
             <div class="usecase-header">
@@ -244,10 +325,10 @@
               Le richieste di qualità dai clienti richiedevano risposte manuali, spesso ripetitive. Abbiamo costruito un flusso Power Automate che analizza la richiesta, accede alla documentazione interna e genera automaticamente una risposta professionale e pertinente.
             </p>
             <ul class="detail-list">
-              <li>✓ Lettura e classificazione automatica delle richieste</li>
-              <li>✓ Generazione di risposte professionali con AI</li>
-              <li>✓ Revisione umana prima dell'invio (human-in-the-loop)</li>
-              <li>✓ Integrazione nativa con Power Automate / Microsoft 365</li>
+              <li>Lettura e classificazione automatica delle richieste</li>
+              <li>Generazione di risposte professionali con AI</li>
+              <li>Revisione umana prima dell'invio (human-in-the-loop)</li>
+              <li>Integrazione nativa con Power Automate / Microsoft 365</li>
             </ul>
             <button class="detail-close">Chiudi ✕</button>
           </div>
@@ -261,9 +342,9 @@
   <section id="booking">
     <div class="booking-glow"></div>
     <div class="container booking-inner">
-      <div class="section-tag reveal">Lavoriamo insieme</div>
+      <div class="mono-label reveal">Lavoriamo insieme</div>
       <h2 class="booking-title reveal">
-        Hai un'idea o un problema<br />che l'AI potrebbe risolvere?
+        Hai un'idea o un problema<br />che l'AI potrebbe <span class="display-italic">risolvere?</span>
       </h2>
       <p class="booking-sub reveal">
         Prenota una call gratuita di 30 minuti. Niente pitch, niente pressioni — solo una conversazione onesta su cosa è possibile fare nel tuo contesto specifico.
@@ -271,21 +352,21 @@
       <div class="booking-card reveal">
         <div class="booking-details">
           <div class="booking-item">
-            <span class="booking-icon">🕐</span>
+            <span class="booking-num">30'</span>
             <div>
               <strong>30 minuti</strong>
               <p>Call conoscitiva gratuita</p>
             </div>
           </div>
           <div class="booking-item">
-            <span class="booking-icon">🎯</span>
+            <span class="booking-num">→</span>
             <div>
               <strong>Analisi del contesto</strong>
               <p>Partiamo dai tuoi processi reali</p>
             </div>
           </div>
           <div class="booking-item">
-            <span class="booking-icon">💡</span>
+            <span class="booking-num">✦</span>
             <div>
               <strong>Prime idee concrete</strong>
               <p>Esci con spunti applicabili da subito</p>
@@ -302,14 +383,24 @@
   <!-- FOOTER -->
   <footer id="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="branding/logo/2.png" alt="Contemplia" class="footer-logo" />
-        <span class="footer-name">contemplia</span>
+      <div class="footer-top">
+        <a href="#hero" class="nav-logo footer-logo-link" aria-label="Contemplia — home">
+          <svg class="lens-mark" viewBox="0 0 100 100" aria-hidden="true">
+            <defs><clipPath id="lensFoot"><circle cx="38" cy="50" r="30"/></clipPath></defs>
+            <circle cx="62" cy="50" r="30" fill="#8D8BC1" clip-path="url(#lensFoot)"/>
+            <circle cx="38" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="62" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+          <span>contemplia</span>
+        </a>
+        <p class="footer-tagline display-italic">Automatizza la routine. Eleva l'umano.</p>
       </div>
-      <p class="footer-copy">© 2025 Contemplia — Leonardo Magro. Tutti i diritti riservati.</p>
-      <div class="footer-links">
-        <a href="mailto:leox.magro@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/leonardo-magro/" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Contemplia — Leonardo Magro</p>
+        <div class="footer-links">
+          <a href="mailto:leox.magro@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/leonardo-magro/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
   </footer>
