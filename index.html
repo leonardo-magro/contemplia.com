@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Preload above/near-the-fold optimized photos for instant display -->
+  <!-- Preload optimized photos for instant display -->
   <link rel="preload" as="image" href="images/me/hero-web.jpg" />
   <link rel="preload" as="image" href="images/me/presentation-web.jpg" />
 
@@ -33,22 +33,32 @@
         <span>contemplia</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">Chi sono</a></li>
-        <li><a href="#values">Valori</a></li>
-        <li><a href="#approach">Approccio</a></li>
-        <li><a href="#usecases">Use Cases</a></li>
-        <li><a href="#booking" class="nav-cta">Prenota una call</a></li>
+        <li><a href="#about" data-en="About">Chi sono</a></li>
+        <li><a href="#values" data-en="Values">Valori</a></li>
+        <li><a href="#approach" data-en="Approach">Approccio</a></li>
+        <li><a href="#usecases" data-en="Use Cases">Use Cases</a></li>
+        <li><a href="#booking" class="nav-cta" data-en="Book a call">Prenota una call</a></li>
+        <li>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button class="lang-btn active" data-lang="it">IT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </li>
       </ul>
       <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#about" class="mobile-link">Chi sono</a>
-      <a href="#values" class="mobile-link">Valori</a>
-      <a href="#approach" class="mobile-link">Approccio</a>
-      <a href="#usecases" class="mobile-link">Use Cases</a>
-      <a href="#booking" class="mobile-link mobile-cta">Prenota una call</a>
+      <a href="#about" class="mobile-link" data-en="About">Chi sono</a>
+      <a href="#values" class="mobile-link" data-en="Values">Valori</a>
+      <a href="#approach" class="mobile-link" data-en="Approach">Approccio</a>
+      <a href="#usecases" class="mobile-link" data-en="Use Cases">Use Cases</a>
+      <a href="#booking" class="mobile-link mobile-cta" data-en="Book a call">Prenota una call</a>
+      <div class="lang-switch mobile-lang" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </nav>
 
@@ -57,39 +67,45 @@
     <div class="hero-grain"></div>
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="mono-label reveal">Umano + AI, insieme · 2026</div>
-        <h1 class="hero-title reveal">
+        <div class="mono-label reveal" data-en="Human + AI, together · 2026">Umano + AI, insieme · 2026</div>
+        <h1 class="hero-title reveal" data-html="true" data-en="Automate the routine.<br /><span class='display-italic'>Elevate the human.</span>">
           Automatizza la routine.<br />
           <span class="display-italic">Eleva l'umano.</span>
         </h1>
-        <p class="hero-sub reveal">
+        <p class="hero-sub reveal" data-en="Machines take on the work that repeats. People return to what truly matters: deciding, creating, contemplating. I help companies build this balance — with tailored AI agents and automations.">
           Le macchine prendono il lavoro che si ripete. Le persone tornano dove conta davvero: decidere, creare, contemplare. Aiuto le aziende a costruire questo equilibrio — con agenti AI e automazioni su misura.
         </p>
         <div class="hero-actions reveal">
-          <a href="#booking" class="btn-primary">Prenota una call gratuita</a>
-          <a href="#usecases" class="btn-ghost">Vedi i progetti →</a>
+          <a href="#booking" class="btn-primary" data-en="Book a free call">Prenota una call gratuita</a>
+          <a href="#usecases" class="btn-ghost" data-en="See the projects →">Vedi i progetti →</a>
         </div>
       </div>
 
       <div class="hero-visual reveal" aria-hidden="true">
         <svg class="lens-hero" viewBox="0 0 240 200">
           <defs>
-            <clipPath id="lensHero"><circle cx="95" cy="100" r="62"/></clipPath>
+            <clipPath id="lensFillClip"><circle cx="95" cy="100" r="62"/></clipPath>
+            <clipPath id="clipLeft"><circle cx="95" cy="100" r="62"/></clipPath>
+            <clipPath id="clipRight"><circle cx="145" cy="100" r="62"/></clipPath>
             <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#8D8BC1" stop-opacity="0.55"/>
               <stop offset="100%" stop-color="#8D8BC1" stop-opacity="0"/>
             </radialGradient>
           </defs>
           <ellipse class="halo" cx="120" cy="100" rx="80" ry="80" fill="url(#lensGlow)"/>
-          <g class="lens-rotor">
-            <circle class="ring ring-human" cx="95" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
-            <circle class="ring ring-ai" cx="145" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
+          <circle class="ring" cx="95" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
+          <circle class="ring" cx="145" cy="100" r="62" fill="none" stroke="#B9B7DA" stroke-width="1.5"/>
+          <!-- filled lens (vesica) -->
+          <circle class="lens-fill" cx="145" cy="100" r="62" fill="#8D8BC1" fill-opacity="0.9" clip-path="url(#lensFillClip)"/>
+          <!-- illuminated lens outline -->
+          <g class="lens-outline">
+            <circle cx="145" cy="100" r="62" fill="none" stroke="#E6E4FA" stroke-width="2" clip-path="url(#clipLeft)"/>
+            <circle cx="95" cy="100" r="62" fill="none" stroke="#E6E4FA" stroke-width="2" clip-path="url(#clipRight)"/>
           </g>
-          <circle cx="145" cy="100" r="62" fill="#8D8BC1" fill-opacity="0.92" clip-path="url(#lensHero)"/>
         </svg>
         <div class="lens-captions">
-          <span class="cap cap-left">Umano</span>
-          <span class="cap cap-right">AI</span>
+          <span class="cap" data-en="Human">Umano</span>
+          <span class="cap">AI</span>
         </div>
       </div>
     </div>
@@ -103,7 +119,7 @@
           <span class="stat-number" data-target="200">0</span>
           <span class="stat-plus">+</span>
         </div>
-        <p class="stat-label">persone formate all'uso dell'AI in azienda</p>
+        <p class="stat-label" data-en="people trained to use AI in their company">persone formate all'uso dell'AI in azienda</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-card reveal">
@@ -111,7 +127,7 @@
           <span class="stat-number" data-target="1000">0</span>
           <span class="stat-plus">+</span>
         </div>
-        <p class="stat-label">ore risparmiate ogni anno da una singola azienda</p>
+        <p class="stat-label" data-en="hours saved every year by a single company">ore risparmiate ogni anno da una singola azienda</p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-card reveal">
@@ -119,7 +135,7 @@
           <span class="stat-number" data-target="30">0</span>
           <span class="stat-plus">+</span>
         </div>
-        <p class="stat-label">progetti gestiti dall'individuazione all'implementazione</p>
+        <p class="stat-label" data-en="projects managed from discovery to implementation">progetti gestiti dall'individuazione all'implementazione</p>
       </div>
     </div>
   </section>
@@ -128,19 +144,23 @@
   <section id="about">
     <div class="container about-grid">
       <div class="about-photos reveal">
-        <img src="images/me/hero-web.jpg" alt="Leonardo Magro" class="about-photo photo-main" width="1000" height="1400" />
-        <img src="images/me/presentation-web.jpg" alt="Leonardo Magro durante una presentazione" class="about-photo photo-secondary" width="900" height="600" loading="lazy" />
+        <figure class="ph ph-back">
+          <img src="images/me/presentation-web.jpg" alt="Leonardo Magro durante una presentazione" width="900" height="1300" />
+        </figure>
+        <figure class="ph ph-front">
+          <img src="images/me/hero-web.jpg" alt="Leonardo Magro" width="1000" height="1400" loading="lazy" />
+        </figure>
       </div>
       <div class="about-text">
-        <div class="mono-label reveal">Chi sono</div>
-        <h2 class="section-title reveal">Ciao, sono <span class="display-italic">Leonardo.</span></h2>
-        <p class="about-desc reveal">
+        <div class="mono-label reveal" data-en="About">Chi sono</div>
+        <h2 class="section-title reveal" data-html="true" data-en="Hi, I'm <span class='display-italic'>Leonardo.</span>">Ciao, sono <span class="display-italic">Leonardo.</span></h2>
+        <p class="about-desc reveal" data-en="With a degree in Digital Management from HFarm, I specialize in bringing artificial intelligence into organizations — not as an end, but as a means.">
           Laureato in Digital Management ad HFarm, mi sono specializzato nell'introdurre l'intelligenza artificiale all'interno delle organizzazioni — non come fine, ma come mezzo.
         </p>
-        <p class="about-desc reveal">
+        <p class="about-desc reveal" data-html="true" data-en="My work always starts from a simple question: <em>where do people spend precious time on low-value tasks?</em> From there we build concrete solutions — AI agents, automations, integrated flows — that give hours back and generate measurable results.">
           Il mio lavoro parte sempre da una domanda semplice: <em>dove le persone spendono tempo prezioso in attività a basso valore?</em> Da lì costruiamo soluzioni concrete — agenti AI, automazioni, flussi integrati — che restituiscono ore e generano risultati misurabili.
         </p>
-        <p class="about-desc reveal">
+        <p class="about-desc reveal" data-en="I've worked with multinationals and SMEs, trained teams of every size, and managed projects from idea to go-live. Every project has one thing in common: people stay at the center.">
           Ho lavorato con multinazionali e PMI, formato team di ogni dimensione, e gestito progetti dall'idea al go-live. Ogni progetto ha una cosa in comune: le persone rimangono al centro.
         </p>
         <div class="about-badges reveal">
@@ -157,52 +177,52 @@
   <section id="values">
     <div class="container">
       <div class="section-header">
-        <div class="mono-label reveal">I valori che perseguiamo</div>
-        <h2 class="section-title reveal">Dove umano e AI <span class="display-italic">si incontrano.</span></h2>
-        <p class="section-sub reveal">Tracciamo una linea netta: le macchine tengono la routine, le persone tengono le decisioni, le relazioni, il significato. Questi sono i principi che guidano ogni progetto.</p>
+        <div class="mono-label reveal" data-en="The values we pursue">I valori che perseguiamo</div>
+        <h2 class="section-title reveal" data-html="true" data-en="Where humans and AI <span class='display-italic'>meet.</span>">Dove umano e AI <span class="display-italic">si incontrano.</span></h2>
+        <p class="section-sub reveal" data-en="We draw a clear line: machines hold the routine, people hold the decisions, the relationships, the meaning. These are the principles behind every project.">Tracciamo una linea netta: le macchine tengono la routine, le persone tengono le decisioni, le relazioni, il significato. Questi sono i principi che guidano ogni progetto.</p>
       </div>
 
       <div class="values-list">
         <div class="value-row reveal">
           <span class="value-index">01</span>
           <div class="value-body">
-            <h3 class="value-name">L'umano al centro</h3>
-            <p class="value-text">La tecnologia serve le persone, mai il contrario. L'AI si occupa del ripetitivo; l'umano resta dove conta — a decidere, costruire relazioni, dare senso.</p>
+            <h3 class="value-name" data-en="Humans at the center">L'umano al centro</h3>
+            <p class="value-text" data-en="Technology serves people, never the other way around. AI handles the repetitive; humans stay where it counts — deciding, building relationships, giving meaning.">La tecnologia serve le persone, mai il contrario. L'AI si occupa del ripetitivo; l'umano resta dove conta — a decidere, costruire relazioni, dare senso.</p>
           </div>
         </div>
         <div class="value-row reveal">
           <span class="value-index">02</span>
           <div class="value-body">
-            <h3 class="value-name">Capire prima di automatizzare</h3>
-            <p class="value-text">Partiamo sempre dal concetto e dal contesto. Nessuna soluzione viene costruita prima di aver compreso davvero il lavoro che deve alleggerire.</p>
+            <h3 class="value-name" data-en="Understand before automating">Capire prima di automatizzare</h3>
+            <p class="value-text" data-en="We always start from the concept and the context. No solution is built before truly understanding the work it should ease.">Partiamo sempre dal concetto e dal contesto. Nessuna soluzione viene costruita prima di aver compreso davvero il lavoro che deve alleggerire.</p>
           </div>
         </div>
         <div class="value-row reveal">
           <span class="value-index">03</span>
           <div class="value-body">
-            <h3 class="value-name">Il tempo è valore</h3>
-            <p class="value-text">Ogni ora restituita è un'ora che torna alla creatività, alle decisioni, alla contemplazione. Misuriamo il successo in tempo liberato, non in strumenti aggiunti.</p>
+            <h3 class="value-name" data-en="Time is value">Il tempo è valore</h3>
+            <p class="value-text" data-en="Every hour returned is an hour that goes back to creativity, decisions, contemplation. We measure success in time freed, not tools added.">Ogni ora restituita è un'ora che torna alla creatività, alle decisioni, alla contemplazione. Misuriamo il successo in tempo liberato, non in strumenti aggiunti.</p>
           </div>
         </div>
         <div class="value-row reveal">
           <span class="value-index">04</span>
           <div class="value-body">
-            <h3 class="value-name">Trasparenza e misura</h3>
-            <p class="value-text">Niente promesse vaghe. Rendiamo tangibile ogni impatto con dati chiari, così il valore generato è sempre visibile e verificabile.</p>
+            <h3 class="value-name" data-en="Transparency and measure">Trasparenza e misura</h3>
+            <p class="value-text" data-en="No vague promises. We make every impact tangible with clear data, so the value created is always visible and verifiable.">Niente promesse vaghe. Rendiamo tangibile ogni impatto con dati chiari, così il valore generato è sempre visibile e verificabile.</p>
           </div>
         </div>
         <div class="value-row reveal">
           <span class="value-index">05</span>
           <div class="value-body">
-            <h3 class="value-name">Tecnologia senza confini visibili</h3>
-            <p class="value-text">L'AI lavora accanto alle persone, in modo fluido — al servizio, mai sopra. Il sistema migliore è quello che non si fa notare.</p>
+            <h3 class="value-name" data-en="Technology without visible seams">Tecnologia senza confini visibili</h3>
+            <p class="value-text" data-en="AI works alongside people, seamlessly — in service, never above. The best system is the one you don't notice.">L'AI lavora accanto alle persone, in modo fluido — al servizio, mai sopra. Il sistema migliore è quello che non si fa notare.</p>
           </div>
         </div>
         <div class="value-row reveal">
           <span class="value-index">06</span>
           <div class="value-body">
-            <h3 class="value-name">Soluzioni che durano</h3>
-            <p class="value-text">Costruiamo sistemi solidi e manutenibili, che le persone sanno davvero usare. L'impatto non finisce al go-live: continua a crescere nel tempo.</p>
+            <h3 class="value-name" data-en="Solutions that last">Soluzioni che durano</h3>
+            <p class="value-text" data-en="We build solid, maintainable systems that people actually know how to use. Impact doesn't end at go-live: it keeps growing over time.">Costruiamo sistemi solidi e manutenibili, che le persone sanno davvero usare. L'impatto non finisce al go-live: continua a crescere nel tempo.</p>
           </div>
         </div>
       </div>
@@ -213,25 +233,25 @@
   <section id="approach">
     <div class="container">
       <div class="section-header">
-        <div class="mono-label reveal">L'approccio</div>
-        <h2 class="section-title reveal">Tre pilastri, <span class="display-italic">un risultato.</span></h2>
-        <p class="section-sub reveal">Dalla scoperta del problema al monitoraggio dell'impatto: un metodo che unisce creatività, competenza tecnica e rigore.</p>
+        <div class="mono-label reveal" data-en="The approach">L'approccio</div>
+        <h2 class="section-title reveal" data-html="true" data-en="Three pillars, <span class='display-italic'>one result.</span>">Tre pilastri, <span class="display-italic">un risultato.</span></h2>
+        <p class="section-sub reveal" data-en="From discovering the problem to monitoring the impact: a method that combines creativity, technical skill and rigor.">Dalla scoperta del problema al monitoraggio dell'impatto: un metodo che unisce creatività, competenza tecnica e rigore.</p>
       </div>
       <div class="approach-grid">
         <div class="approach-card reveal">
           <span class="approach-num">01</span>
-          <h3 class="approach-title">Discovery</h3>
-          <p class="approach-desc">Mappiamo i processi aziendali con creatività e un mindset innovativo, identifichiamo i colli di bottiglia e formuliamo nuove soluzioni. Prima di costruire, capiamo.</p>
+          <h3 class="approach-title" data-en="Discovery">Discovery</h3>
+          <p class="approach-desc" data-en="We map business processes with creativity and an innovative mindset, identify bottlenecks and formulate new solutions. Before building, we understand.">Mappiamo i processi aziendali con creatività e un mindset innovativo, identifichiamo i colli di bottiglia e formuliamo nuove soluzioni. Prima di costruire, capiamo.</p>
         </div>
         <div class="approach-card approach-card--accent reveal">
           <span class="approach-num">02</span>
-          <h3 class="approach-title">Implementazione</h3>
-          <p class="approach-desc">Dalla strategia al codice. Costruiamo agenti AI, automazioni e sistemi integrati che funzionano davvero — e che le persone sapranno usare fin dal primo giorno.</p>
+          <h3 class="approach-title" data-en="Implementation">Implementazione</h3>
+          <p class="approach-desc" data-en="From strategy to code. We build AI agents, automations and integrated systems that truly work — and that people will know how to use from day one.">Dalla strategia al codice. Costruiamo agenti AI, automazioni e sistemi integrati che funzionano davvero — e che le persone sapranno usare fin dal primo giorno.</p>
         </div>
         <div class="approach-card reveal">
           <span class="approach-num">03</span>
-          <h3 class="approach-title">Monitoraggio</h3>
-          <p class="approach-desc">Ogni soluzione deve dimostrare il suo valore. Rendiamo tangibile l'impatto con metriche chiare e follow-up continuo per ottimizzare nel tempo.</p>
+          <h3 class="approach-title" data-en="Monitoring">Monitoraggio</h3>
+          <p class="approach-desc" data-en="Every solution must prove its value. We make the impact tangible with clear metrics and continuous follow-up to optimize over time.">Ogni soluzione deve dimostrare il suo valore. Rendiamo tangibile l'impatto con metriche chiare e follow-up continuo per ottimizzare nel tempo.</p>
         </div>
       </div>
     </div>
@@ -242,8 +262,8 @@
     <div class="container">
       <div class="section-header">
         <div class="mono-label reveal">Use Cases</div>
-        <h2 class="section-title reveal">Soluzioni reali, <span class="display-italic">risultati misurabili.</span></h2>
-        <p class="section-sub reveal">Esempi concreti di come l'AI ha trasformato processi aziendali in vantaggi competitivi. Clicca su ogni progetto per scoprirne i dettagli.</p>
+        <h2 class="section-title reveal" data-html="true" data-en="Real solutions, <span class='display-italic'>measurable results.</span>">Soluzioni reali, <span class="display-italic">risultati misurabili.</span></h2>
+        <p class="section-sub reveal" data-en="Concrete examples of how AI turned business processes into competitive advantages. Click each project to discover the details.">Esempi concreti di come l'AI ha trasformato processi aziendali in vantaggi competitivi. Clicca su ogni progetto per scoprirne i dettagli.</p>
       </div>
       <div class="usecases-grid">
 
@@ -254,25 +274,25 @@
               <div class="usecase-arrow">↗</div>
             </div>
             <h3 class="usecase-name">Clausis</h3>
-            <p class="usecase-brief">Agente AI per l'analisi contrattuale</p>
+            <p class="usecase-brief" data-en="AI agent for contract analysis">Agente AI per l'analisi contrattuale</p>
             <div class="usecase-metric">
               <span class="metric-value">-80%</span>
-              <span class="metric-label">tempo di revisione</span>
+              <span class="metric-label" data-en="review time">tempo di revisione</span>
             </div>
           </div>
           <div class="usecase-detail">
             <div class="usecase-tag usecase-tag--detail">Legal</div>
             <h3 class="usecase-name">Clausis</h3>
-            <p class="detail-text">
+            <p class="detail-text" data-en="Manual contract analysis required hours of skilled work per document. Clausis is an AI agent that reads, classifies and summarizes critical clauses in seconds — flagging anomalies and risks instantly.">
               L'analisi manuale dei contratti richiedeva ore di lavoro qualificato per ogni documento. Clausis è un agente AI che legge, classifica e riassume clausole critiche in pochi secondi — segnalando anomalie e rischi in modo immediato.
             </p>
             <ul class="detail-list">
-              <li>Analisi di contratti in linguaggio naturale</li>
-              <li>Identificazione automatica delle clausole chiave</li>
-              <li>Report sintetico con flag sui punti critici</li>
-              <li>Integrato nei flussi di lavoro esistenti</li>
+              <li data-en="Contract analysis in natural language">Analisi di contratti in linguaggio naturale</li>
+              <li data-en="Automatic identification of key clauses">Identificazione automatica delle clausole chiave</li>
+              <li data-en="Concise report with flags on critical points">Report sintetico con flag sui punti critici</li>
+              <li data-en="Integrated into existing workflows">Integrato nei flussi di lavoro esistenti</li>
             </ul>
-            <button class="detail-close">Chiudi ✕</button>
+            <button class="detail-close" data-en="Close ✕">Chiudi ✕</button>
           </div>
         </div>
 
@@ -283,25 +303,25 @@
               <div class="usecase-arrow">↗</div>
             </div>
             <h3 class="usecase-name">Scout</h3>
-            <p class="usecase-brief">Agente AI per l'intelligence sui prospect</p>
+            <p class="usecase-brief" data-en="AI agent for prospect intelligence">Agente AI per l'intelligence sui prospect</p>
             <div class="usecase-metric">
-              <span class="metric-value">Secondi</span>
-              <span class="metric-label">per profilare un prospect</span>
+              <span class="metric-value" data-en="Seconds">Secondi</span>
+              <span class="metric-label" data-en="to profile a prospect">per profilare un prospect</span>
             </div>
           </div>
           <div class="usecase-detail">
             <div class="usecase-tag usecase-tag--detail">Sales</div>
             <h3 class="usecase-name">Scout</h3>
-            <p class="detail-text">
+            <p class="detail-text" data-en="Sales teams wasted precious time manually researching information on potential clients. Scout automatically gathers public data, cross-references it with the company profile and returns a complete overview of common ground with the prospect in seconds.">
               I team sales perdevano tempo prezioso a ricercare manualmente informazioni sui potenziali clienti. Scout raccoglie automaticamente dati pubblici, li incrocia con il profilo aziendale e restituisce in pochi secondi una panoramica completa dei punti di incontro con il prospect.
             </p>
             <ul class="detail-list">
-              <li>Raccolta automatica di dati pubblici sul prospect</li>
-              <li>Analisi dei punti di affinità con l'offerta</li>
-              <li>Suggerimenti per l'approccio commerciale</li>
-              <li>Output pronto per il CRM</li>
+              <li data-en="Automatic collection of public data on the prospect">Raccolta automatica di dati pubblici sul prospect</li>
+              <li data-en="Analysis of affinity points with your offering">Analisi dei punti di affinità con l'offerta</li>
+              <li data-en="Suggestions for the sales approach">Suggerimenti per l'approccio commerciale</li>
+              <li data-en="Output ready for the CRM">Output pronto per il CRM</li>
             </ul>
-            <button class="detail-close">Chiudi ✕</button>
+            <button class="detail-close" data-en="Close ✕">Chiudi ✕</button>
           </div>
         </div>
 
@@ -312,25 +332,25 @@
               <div class="usecase-arrow">↗</div>
             </div>
             <h3 class="usecase-name">Quality Response</h3>
-            <p class="usecase-brief">Automazione risposte clienti su qualità</p>
+            <p class="usecase-brief" data-en="Automated customer quality replies">Automazione risposte clienti su qualità</p>
             <div class="usecase-metric">
               <span class="metric-value">-70%</span>
-              <span class="metric-label">tempo di gestione richieste</span>
+              <span class="metric-label" data-en="request handling time">tempo di gestione richieste</span>
             </div>
           </div>
           <div class="usecase-detail">
             <div class="usecase-tag usecase-tag--detail">Operations</div>
             <h3 class="usecase-name">Quality Response</h3>
-            <p class="detail-text">
+            <p class="detail-text" data-en="Customer quality requests required manual, often repetitive replies. We built a Power Automate flow that analyzes the request, accesses internal documentation and automatically generates a professional, relevant response.">
               Le richieste di qualità dai clienti richiedevano risposte manuali, spesso ripetitive. Abbiamo costruito un flusso Power Automate che analizza la richiesta, accede alla documentazione interna e genera automaticamente una risposta professionale e pertinente.
             </p>
             <ul class="detail-list">
-              <li>Lettura e classificazione automatica delle richieste</li>
-              <li>Generazione di risposte professionali con AI</li>
-              <li>Revisione umana prima dell'invio (human-in-the-loop)</li>
-              <li>Integrazione nativa con Power Automate / Microsoft 365</li>
+              <li data-en="Automatic reading and classification of requests">Lettura e classificazione automatica delle richieste</li>
+              <li data-en="AI-generated professional responses">Generazione di risposte professionali con AI</li>
+              <li data-en="Human review before sending (human-in-the-loop)">Revisione umana prima dell'invio (human-in-the-loop)</li>
+              <li data-en="Native integration with Power Automate / Microsoft 365">Integrazione nativa con Power Automate / Microsoft 365</li>
             </ul>
-            <button class="detail-close">Chiudi ✕</button>
+            <button class="detail-close" data-en="Close ✕">Chiudi ✕</button>
           </div>
         </div>
 
@@ -342,11 +362,11 @@
   <section id="booking">
     <div class="booking-glow"></div>
     <div class="container booking-inner">
-      <div class="mono-label reveal">Lavoriamo insieme</div>
-      <h2 class="booking-title reveal">
+      <div class="mono-label reveal" data-en="Let's work together">Lavoriamo insieme</div>
+      <h2 class="booking-title reveal" data-html="true" data-en="Do you have an idea or a problem<br />that AI could <span class='display-italic'>solve?</span>">
         Hai un'idea o un problema<br />che l'AI potrebbe <span class="display-italic">risolvere?</span>
       </h2>
-      <p class="booking-sub reveal">
+      <p class="booking-sub reveal" data-en="Book a free 30-minute call. No pitch, no pressure — just an honest conversation about what's possible in your specific context.">
         Prenota una call gratuita di 30 minuti. Niente pitch, niente pressioni — solo una conversazione onesta su cosa è possibile fare nel tuo contesto specifico.
       </p>
       <div class="booking-card reveal">
@@ -354,26 +374,26 @@
           <div class="booking-item">
             <span class="booking-num">30'</span>
             <div>
-              <strong>30 minuti</strong>
-              <p>Call conoscitiva gratuita</p>
+              <strong data-en="30 minutes">30 minuti</strong>
+              <p data-en="Free intro call">Call conoscitiva gratuita</p>
             </div>
           </div>
           <div class="booking-item">
             <span class="booking-num">→</span>
             <div>
-              <strong>Analisi del contesto</strong>
-              <p>Partiamo dai tuoi processi reali</p>
+              <strong data-en="Context analysis">Analisi del contesto</strong>
+              <p data-en="We start from your real processes">Partiamo dai tuoi processi reali</p>
             </div>
           </div>
           <div class="booking-item">
             <span class="booking-num">✦</span>
             <div>
-              <strong>Prime idee concrete</strong>
-              <p>Esci con spunti applicabili da subito</p>
+              <strong data-en="First concrete ideas">Prime idee concrete</strong>
+              <p data-en="Leave with insights you can apply right away">Esci con spunti applicabili da subito</p>
             </div>
           </div>
         </div>
-        <a href="https://calendar.app.google/L6VuhQtea8cADq4S6" target="_blank" rel="noopener" class="btn-primary btn-large">
+        <a href="https://calendar.app.google/L6VuhQtea8cADq4S6" target="_blank" rel="noopener" class="btn-primary btn-large" data-en="Book your call →">
           Prenota la tua call →
         </a>
       </div>
@@ -393,7 +413,7 @@
           </svg>
           <span>contemplia</span>
         </a>
-        <p class="footer-tagline display-italic">Automatizza la routine. Eleva l'umano.</p>
+        <p class="footer-tagline display-italic" data-en="Automate the routine. Elevate the human.">Automatizza la routine. Eleva l'umano.</p>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 Contemplia — Leonardo Magro</p>

@@ -1,3 +1,37 @@
+// =====================
+// Language switch (IT / EN)
+// =====================
+const i18nEls = document.querySelectorAll('[data-en]');
+// cache the original Italian content on first load
+i18nEls.forEach(el => {
+  el.dataset.itCache = el.dataset.html === 'true' ? el.innerHTML : el.textContent;
+});
+const langButtons = document.querySelectorAll('.lang-btn');
+
+function setLang(lang) {
+  i18nEls.forEach(el => {
+    const value = lang === 'en' ? el.dataset.en : el.dataset.itCache;
+    if (el.dataset.html === 'true') el.innerHTML = value;
+    else el.textContent = value;
+  });
+  document.documentElement.lang = lang;
+  document.title = lang === 'en'
+    ? "Contemplia — Automate the routine. Elevate the human."
+    : "Contemplia — Automatizza la routine. Eleva l'umano.";
+  langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('contemplia_lang', lang); } catch (e) {}
+}
+
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+let savedLang = null;
+try { savedLang = localStorage.getItem('contemplia_lang'); } catch (e) {}
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+const initialLang = (urlLang === 'en' || urlLang === 'it') ? urlLang : savedLang;
+if (initialLang === 'en') setLang('en');
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {

@@ -197,6 +197,28 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600 !important;
 }
 
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px;
+}
+.lang-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.lang-btn:hover { color: var(--text); }
+.lang-btn.active { background: var(--indigo); color: #fff; }
+
 .burger {
   display: none;
   flex-direction: column;
@@ -228,6 +250,7 @@ a { text-decoration: none; color: inherit; }
 }
 .mobile-link:hover { color: var(--text); }
 .mobile-cta { margin-top: 14px; border: none !important; color: var(--lavender); font-weight: 600; }
+.mobile-lang { margin-top: 20px; align-self: flex-start; }
 
 /* =====================
    HERO
@@ -296,16 +319,22 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 .lens-hero { width: 100%; max-width: 420px; overflow: visible; }
-.lens-hero .halo { animation: haloPulse 6s ease-in-out infinite; transform-origin: 120px 100px; }
-.lens-rotor { transform-origin: 120px 100px; animation: lensBreath 9s ease-in-out infinite; }
+.lens-hero .halo { animation: haloPulse 5s ease-in-out infinite; transform-origin: 120px 100px; }
+.lens-fill { animation: lensFillPulse 5s ease-in-out infinite; }
+.lens-outline { animation: lensIgnite 5s ease-in-out infinite; }
 
 @keyframes haloPulse {
-  0%, 100% { opacity: 0.55; transform: scale(1); }
-  50%      { opacity: 0.9;  transform: scale(1.08); }
+  0%, 100% { opacity: 0.45; transform: scale(0.96); }
+  50%      { opacity: 1;    transform: scale(1.1); }
 }
-@keyframes lensBreath {
-  0%, 100% { transform: translateX(0); }
-  50%      { transform: translateX(-4px); }
+@keyframes lensFillPulse {
+  0%, 100% { fill-opacity: 0.78; }
+  50%      { fill-opacity: 0.95; }
+}
+/* The lens contour ignites as it settles centred between the two circles */
+@keyframes lensIgnite {
+  0%, 100% { opacity: 0.45; filter: drop-shadow(0 0 1px rgba(177,170,235,0.2)); }
+  50%      { opacity: 1;    filter: drop-shadow(0 0 9px rgba(214,210,250,0.95)); }
 }
 
 .lens-captions {
@@ -323,7 +352,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lens-hero .halo, .lens-rotor { animation: none; }
+  .lens-hero .halo, .lens-fill, .lens-outline { animation: none; }
 }
 
 /* =====================
@@ -383,26 +412,45 @@ a { text-decoration: none; color: inherit; }
   gap: 84px;
   align-items: center;
 }
-.about-photos { position: relative; height: 540px; }
-.about-photo {
+.about-photos { position: relative; height: 580px; }
+.ph {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
   border-radius: var(--radius);
-  object-fit: cover;
   border: 1px solid var(--border);
 }
-.photo-main {
+.ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* tie the photos to the contemplative indigo palette */
+  filter: grayscale(0.5) contrast(1.04) brightness(0.9);
+}
+.ph::after {
+  content: "";
   position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(69,64,106,0.55), rgba(44,60,84,0.42));
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+/* back photo — presentation (full standing figure, given more room) */
+.ph-back {
   top: 0; left: 0;
-  width: 78%; height: 86%;
-  object-position: center 20%;
+  width: 62%; height: 90%;
   box-shadow: 0 28px 70px rgba(0,0,0,0.5);
 }
-.photo-secondary {
-  position: absolute;
+.ph-back img { object-position: center 30%; }
+/* front photo — portrait, similar size, slightly overlapping */
+.ph-front {
   bottom: 0; right: 0;
-  width: 54%; height: 50%;
+  width: 54%; height: 74%;
   box-shadow: 0 18px 50px rgba(0,0,0,0.55);
   border: 2px solid var(--border-strong);
 }
+.ph-front img { object-position: center 22%; }
 .about-desc {
   font-size: 1rem;
   color: var(--text-muted);
