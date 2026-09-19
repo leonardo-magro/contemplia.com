@@ -412,7 +412,7 @@ a { text-decoration: none; color: inherit; }
   gap: 84px;
   align-items: center;
 }
-.about-photos { position: relative; height: 580px; }
+.about-photos { position: relative; height: 560px; }
 .ph {
   position: absolute;
   margin: 0;
@@ -425,32 +425,32 @@ a { text-decoration: none; color: inherit; }
   height: 100%;
   object-fit: cover;
   display: block;
-  /* tie the photos to the contemplative indigo palette */
-  filter: grayscale(0.5) contrast(1.04) brightness(0.9);
+  /* light indigo patina: tints without washing the photo out */
+  filter: grayscale(0.14) contrast(1.12) saturate(1.1) brightness(0.97);
 }
 .ph::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(69,64,106,0.55), rgba(44,60,84,0.42));
+  background: linear-gradient(150deg, rgba(69,64,106,0.32), rgba(44,60,84,0.20));
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
 /* back photo: portrait, the taller anchor of the composition */
 .ph-back {
   top: 0; left: 0;
-  width: 60%; height: 88%;
+  width: 62%; height: 83%;
   box-shadow: 0 28px 70px rgba(0,0,0,0.5);
 }
 .ph-back img { object-position: center center; }
 /* front photo: landscape, overlapping the bottom right */
 .ph-front {
   bottom: 0; right: 0;
-  width: 62%; height: 44%;
+  width: 64%; height: 46%;
   box-shadow: 0 18px 50px rgba(0,0,0,0.55);
   border: 2px solid var(--border-strong);
 }
-.ph-front img { object-position: center 40%; }
+.ph-front img { object-position: center 38%; }
 .about-desc {
   font-size: 1rem;
   color: var(--text-muted);
