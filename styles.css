@@ -412,7 +412,8 @@ a { text-decoration: none; color: inherit; }
   gap: 84px;
   align-items: center;
 }
-.about-photos { position: relative; height: 560px; }
+/* Sized by aspect-ratio so the framing stays identical at every screen width */
+.about-photos { position: relative; aspect-ratio: 17 / 20; }
 .ph {
   position: absolute;
   margin: 0;
@@ -421,36 +422,49 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid var(--border);
 }
 .ph img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
-  /* light indigo patina: tints without washing the photo out */
-  filter: grayscale(0.14) contrast(1.12) saturate(1.1) brightness(0.97);
 }
 .ph::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(69,64,106,0.32), rgba(44,60,84,0.20));
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
-/* back photo: portrait, the taller anchor of the composition */
+/* back photo: warm portrait, the taller anchor of the composition */
 .ph-back {
   top: 0; left: 0;
-  width: 62%; height: 83%;
+  width: 62%;
+  aspect-ratio: 2 / 3;
   box-shadow: 0 28px 70px rgba(0,0,0,0.5);
 }
-.ph-back img { object-position: center center; }
-/* front photo: landscape, overlapping the bottom right */
+.ph-back img {
+  /* light indigo patina: tints without washing the warm tones out */
+  filter: grayscale(0.12) contrast(1.14) saturate(1.14) brightness(0.94);
+}
+.ph-back::after {
+  background: linear-gradient(150deg, rgba(69,64,106,0.32), rgba(44,60,84,0.20));
+}
+/* front photo: cooler and brighter at source, so it gets its own darker grade */
 .ph-front {
   bottom: 0; right: 0;
-  width: 64%; height: 46%;
+  width: 66%;
+  aspect-ratio: 4 / 3;
   box-shadow: 0 18px 50px rgba(0,0,0,0.55);
   border: 2px solid var(--border-strong);
 }
-.ph-front img { object-position: center 38%; }
+.ph-front img {
+  filter: grayscale(0.20) contrast(1.09) saturate(0.95) brightness(0.78);
+}
+.ph-front::after {
+  background: linear-gradient(150deg, rgba(69,64,106,0.44), rgba(44,60,84,0.34));
+}
 .about-desc {
   font-size: 1rem;
   color: var(--text-muted);
@@ -914,7 +928,7 @@ a { text-decoration: none; color: inherit; }
   .lens-hero { max-width: 300px; }
 
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
-  .about-photos { height: 380px; max-width: 460px; }
+  .about-photos { height: auto; max-width: 420px; }
 
   .values-list { grid-template-columns: 1fr; }
   .value-row:nth-child(2) { border-top: 1px solid var(--border); }
